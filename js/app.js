@@ -7,41 +7,26 @@ btns.forEach(btn => {
     btn.addEventListener('click', function(event) {
 
         const value = event.target;
-        if(value.classList.contains('prevBtn')) {
-            counter--;
-            
-            if(counter < 0) {
-                displayCounter.textContent = counter;
-                displayCounter.style.color = 'red';
-            } else if (counter > 0) {
-                displayCounter.textContent = counter;
-                displayCounter.style.color = 'green';
-            } else {
-                displayCounter.textContent = counter;
-                displayCounter.style.color = 'black';
-            }
-            
-            
-        }
 
-        if(value.classList.contains('nextBtn')) {
+        // change counter
+        if(value.classList.contains('prevBtn')) {
+            
+            counter--;
+        } else if (value.classList.contains('nextBtn')) {
 
             counter++;
+        }
 
-            if(counter > 0) {
-                displayCounter.textContent = counter;
-                displayCounter.style.color = 'green';
-            } else if (counter < 0 ) {
+        displayCounter.textContent = counter;
+        
+        // change colour
 
-                displayCounter.textContent = counter;
-                displayCounter.style.color = 'red';
-
-            } else {
-                displayCounter.textContent = counter;
-                displayCounter.style.color = 'black';
-            }
-
-          
+        if(counter === 0) {
+            displayCounter.style.color = 'black';
+        } else if (counter < 0) {
+            displayCounter.style.color = 'red';
+        } else if (counter > 0) {
+            displayCounter.style.color = 'green';
         }
     })
 })
